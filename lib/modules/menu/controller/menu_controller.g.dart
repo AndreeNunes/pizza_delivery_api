@@ -9,5 +9,6 @@ part of 'menu_controller.dart';
 Router _$MenuControllerRouter(MenuController service) {
   final router = Router();
   router.add('GET', r'/', service.findAll);
+  router.add('GET', r'/bordas', service.edges);
   return router;
 }
