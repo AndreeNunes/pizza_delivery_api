@@ -30,5 +30,18 @@ class MenuController {
     }
   }
 
+  @Route.get('/bordas')
+  Future<Response> edges(Request request) async {
+    try {
+      final edges = await _menuService.getEdges();
+
+      return Response.ok(
+          jsonEncode(edges?.map((e) => e.toMap())?.toList() ?? []));
+    } catch (e) {
+      print(e);
+      return Response.internalServerError();
+    }
+  }
+
   Router get router => _$MenuControllerRouter(this);
 }
